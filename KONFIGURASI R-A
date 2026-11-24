@@ -1,0 +1,32 @@
+! ===== R-A (Cabang A) =====
+hostname R-A
+no ip domain-lookup
+enable secret Cisco@123
+service password-encryption
+banner motd # Akses hanya untuk pengguna berwenang #
+ip domain-name nusanet.local
+username admin secret Cisco@123
+crypto key generate rsa modulus 2048
+ip ssh version 2
+!
+interface GigabitEthernet0/0
+ description LAN Cabang A
+ ip address 192.168.110.1 255.255.255.0
+ ip helper-address 10.0.0.1
+ no shutdown
+interface GigabitEthernet0/1
+ description WAN ke R-HQ
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+!
+router ospf 1
+ router-id 2.2.2.2
+ network 192.168.110.0 0.0.0.255 area 0
+ network 10.0.0.0 0.0.0.3 area 0
+ passive-interface GigabitEthernet0/0
+!
+line vty 0 4
+ login local
+ transport input ssh
+end
+write memory
