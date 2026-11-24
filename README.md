@@ -1,4 +1,4 @@
-# 🌐 NusaNet Secure
+# 🌐 DellNet Secure
 ### Jaringan Perusahaan Multi-Cabang yang Aman Berbasis Cisco (VLAN • OSPF • DHCP Relay • NAT • ACL • SSH)
 
 Project simulasi jaringan perusahaan dengan 1 kantor pusat (HQ) dan 2 kantor cabang, dibangun dengan **Cisco Packet Tracer** (kompatibel juga dengan GNS3 / CML). Cocok untuk portofolio, tugas kuliah, dan latihan CCNA.
